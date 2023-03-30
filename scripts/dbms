@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#############################################################################################
+#                dbms                                                                       #
+#  the starting file for Bash-DataBase-Simulator                                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223                              #
+#                                                                                           #
+#  >>> interfacing                                                                          #
+#  """""""""""""""                                                                          #
+#        $$$ dbms     : same as [dbms cli]                                                  #
+#        $$$ dbms cli : start the menu app. on the command line                             #
+#        $$$ dbms gui : not available yet                                                   #
+#        $$$ dbms <db-option> : using db commands directly                                  #
+#                                                                                           # 
+#   * any additional argument will be ignored                                               #
+#############################################################################################
+
+options="connect create drop list"
+mode=""
+if [ $# -eq 0 ]; then mode="cli"; else mode=$1; fi
+
+case $mode in
+gui) echo choice gui not available yet ;;
+cli)    echo choice cli;
+        select choice in $options exit
+        do
+        case $choice in
+        connect)    echo connect;;
+        create)     echo create;;
+        drop)       echo drop;;
+        list)       echo list;;
+        exit)       echo exiting...; exit;;
+        esac
+        done
+esac

@@ -24,3 +24,5 @@ Authors: Mustafa Essam & Hadi L. Al-Atally
 #### r-select
 #### r-update
 
+## Configurationfile: scripts/config ( not working for now )
+### data directory is where databases are stored.

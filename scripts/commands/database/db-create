@@ -1,3 +1,69 @@
 #!/bin/bash
 
+#############################################################################
+#                db-create                                                  #
+#  script used to create new database in specified  path                    #
+#  if dirctory is not specified use path defined in config file             #
+#  at entry data_path                                                       #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#       $$$ db-create : cli menu                                            #
+#       $$$ db-create  <db-name> [<path>]                                   #
+#         : create db with name <db-name> in <path> if specified and        #
+#           in the path named (data_path) in (config) file                  #
+#       $$$ (dbms db-create) is the same as (db-create) and this is done    #
+#           in dbms script file.                                            #
+#                                                                           #
+#       any additional argument will be ignored                             #
+#############################################################################
+
+data_path='./data'
+
+if [ $# -eq 0  ]
+then
+    echo "db-create: menu"
+    read -p "db-create: Enter new DB name: " db_name
+    read -p "db-create: Enter new DB path(press enter for default): " db_path
+   # note the symbol (~) is not replaced with home dir but considerd relative.
+   # so a directory named ~ has been made in $PWD
+else    
+    db_path=$2
+    db_name=$1
+
+fi
+
+    # use the second arg. if present as the path to data 
+    if [ $db_path ]; then data_path=$db_path; fi
+
+    # use first argument as db name 
+    db_fname=$data_path/$db_name
+    echo $db_fname
+    # check if the db exists already if so exit with code 1001
+    if [ -d $db_fname  ]
+    then
+        # already there is a db with this name
+        echo "db-create: There is already a database $db_name in $data_path"
+        exit 1001
+   
+    else # 
+        # just create it and go to sleep.
+        mkdir -p $db_fname
+    fi
+
+
+exit
+
+# one error to be solved
+
+[hadi@localhost scripts]$ ./commands/database/db-create
+db-create: menu
+db-create: Enter new DB name: myDB9
+db-create: Enter new DB path(press enter for default): `echo $HOME`
+./commands/database/db-create: line 38: [: `echo: unary operator expected
+./data/myDB9
+[hadi@localhost scripts]$ 
+
+
 

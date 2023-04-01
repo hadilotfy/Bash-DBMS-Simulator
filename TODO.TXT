@@ -1,0 +1,13 @@
+
+first stage: Architecture  (done)
+second stage: Menu (scripts/dbms) (done)
+third stage: DataBase Level Scripts ( inprogress  ) 
+    finished: db-create
+    next:     db-list
+-------------------------------------------------
+next things to do:-
+
+***  write a function get_config_info that is used by all scripts to read scripts/config file
+
+***  write scripts/commands/database/db-list
+

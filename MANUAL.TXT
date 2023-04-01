@@ -1,0 +1,193 @@
+
+
+## Scripts
+### Main Script
+#### dbms
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+### DataBase Level Scripts
+#### db-create
+#############################################################################
+#                db-create                                                  #
+#  script used to create new database in specified  path                    #
+#  if dirctory is not specified use path defined in config file             #
+#  at entry data_path                                                       #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#       $$$ db-create  <db-name> [<path>]                                   #
+#         : create db with name <db-name> in <path> if specified and        #
+#           in the path named (data_path) in (config) file                  #
+#       $$$ (dbms db-create) is the same as (db-create)                     #
+#                                                                           #
+#       any additional argument will be ignored                             #
+#############################################################################
+#### db-drop
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### db-list
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### db-connect
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+### Table Level Scripts
+#### t-create
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### t-drop
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### t-list
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+### Record Level Scripts
+#### r-insert
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### r-delete
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### r-select
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+#### r-update
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+

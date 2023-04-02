@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#???????????????????????????????????????  Postponed work on configuration file.
+# enforcing prog. configurations.
+#source ./config
+#echo $PWD   
+#echo $OLD_PWD
+#echo $DATA_PATH
+#echo $SCRIPTS_DIR_PATH
+
 #############################################################################
 #                dbms                                                       #
 #  the starting file for Bash-DataBase-Simulator                            #

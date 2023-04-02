@@ -1,2 +1,25 @@
-data_path=./data
+#!/bin/bash
+
+# this file is not completed yet ??????????????????????????????????????????????
+
+
+SCRIPTS_DIR_PATH='/home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts'
+DATA_PATH='./data'
+
+# this file is used to enforce configuration and unify the ground that the
+# database simulator scripts works on.
+
+# this file is intended to be sourced at the start of every script in this
+# project
+
+
+# First: save current pwd to OLD_PWD readonly variable and change working 
+#        directory to SCRIPTS_DIR_PATH.
+
+readonly OLD_PWD=`pwd`
+cd $SCRIPTS_DIR_PATH
+
+
+
+
 

@@ -4,7 +4,7 @@
 ### Main Script
 #### dbms
 #############################################################################
-#                dbms                                                       #
+#                dbms                    path: ./scripts/dbms               #
 #  the starting file for Bash-DataBase-Simulator                            #
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
@@ -21,7 +21,7 @@
 ### DataBase Level Scripts
 #### db-create
 #############################################################################
-#                db-create                                                  #
+#                db-create     path: ./scripts/commands/database/db-create  #
 #  script used to create new database in specified  path                    #
 #  if dirctory is not specified use path defined in config file             #
 #  at entry data_path                                                       #
@@ -29,25 +29,26 @@
 #                                                                           #
 #  >>> interfacing                                                          #
 #  """""""""""""""                                                          #
-#       $$$ db-create  <db-name> [<path>]                                   #
+#       $$$ [dbms] db-create  <db-name> [<path>]                            #
 #         : create db with name <db-name> in <path> if specified and        #
-#           in the path named (data_path) in (config) file                  #
-#       $$$ (dbms db-create) is the same as (db-create)                     #
+#           in the path named (data_path) in (config) file if not sp
+#           _ecified #
 #                                                                           #
 #       any additional argument will be ignored                             #
 #############################################################################
 #### db-drop
 #############################################################################
-#                dbms                                                       #
-#  the starting file for Bash-DataBase-Simulator                            #
-#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                db-drop      path: ./scripts/commands/database/db-drop     #
+#  script used to drop the whole of a database from the specified directory #
+#  and from the default directory if path not specified                     #
+# authors: github.com/hadilotfy , github.com/Mustafa-Essam223               #
 #                                                                           #
 #  >>> interfacing                                                          #
 #  """""""""""""""                                                          #
-#        $$$ dbms     : same as [dbms cli]                                  #
-#        $$$ dbms cli : start the menu app. on the command line             #
-#        $$$ dbms gui : not available yet                                   #
-#        $$$ dbms <db-option> : using db commands directly                  #
+#        $$$ [dbms] db-drop <db-name> [<path>]                              #
+#           : drop db with name <db-name> in <path> is specified and        #
+#             in the path named (data_path) in  (config) file if not        #
+#             specified.                                                    #
 #                                                                           #
 #   * any additional argument will be ignored                               #
 #############################################################################

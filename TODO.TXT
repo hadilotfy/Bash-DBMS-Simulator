@@ -7,7 +7,26 @@ third stage: DataBase Level Scripts ( inprogress  )
 -------------------------------------------------
 next things to do:-
 
-***  write a function get_config_info that is used by all scripts to read scripts/config file
+***  write a function get_config_info that is used by all scripts to read scripts/config file 
+        -----> made a script " ./scripts/config  that is intended to be sourced
+                into every script but it needs more work so 
+                (( Postponed )) 2023_04_01
 
+* database level scripts
 ***  write scripts/commands/database/db-list
 
+***  write scripts/commands/database/db-connect
+
+* table level scripts
+    *** all of them
+* record level scripts
+    *** al of them
+
+
+
+
+--------------------------------------------------
+Finished Tasks
+''''''''''''''
+2023_04_02
+Sun 02 Apr 2023 05:46:30 AM EET:  write scripts/commands/database/db-drop

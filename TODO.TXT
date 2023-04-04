@@ -1,28 +1,42 @@
+-------------------------------------------------
+Overall State
+'''''''''''''
 
 first stage: Architecture  (done)
 second stage: Menu (scripts/dbms) (done)
 third stage: DataBase Level Scripts ( inprogress  ) 
-    finished: db-create
+    finished: db-create,db-connect,db-drop
     next:     db-list
--------------------------------------------------
-next things to do:-
 
-***  write a function get_config_info that is used by all scripts to read scripts/config file 
+
+-------------------------------------------------
+Next Things To Do
+'''''''''''''''''
+
+* database level scripts
+* write scripts/commands/database/db-list
+
+
+* table level scripts
+    *   t-create
+    *   t-drop
+    *   t-list
+** record level scripts
+    **  r-insert
+    **  r-delete
+    **  r-select
+    **  r-update
+
+*** problem in db level scripts : not checking if the user entered an empty db name. (after command:  read -p "db-drop: Enter DB name: " db_name)
+
+****  write a function get_config_info that is used by all scripts to read scripts/config file 
         -----> made a script " ./scripts/config  that is intended to be sourced
                 into every script but it needs more work so 
                 (( Postponed )) 2023_04_01
 
-* database level scripts
-***  write scripts/commands/database/db-list
-
-***  write scripts/commands/database/db-connect
-
-* table level scripts
-    *** all of them
-* record level scripts
-    *** al of them
-
-
+**** change select menues to
+    -re print the menu after every input 
+    -exit with code 0 and put it last
 
 
 --------------------------------------------------
@@ -30,3 +44,15 @@ Finished Tasks
 ''''''''''''''
 2023_04_02
 Sun 02 Apr 2023 05:46:30 AM EET:  write scripts/commands/database/db-drop
+Tue 04 Apr 2023 11:19:54 AM EET:  write scripts/commands/database/db-connect
+
+
+
+
+-------------------------------------------------
+References
+''''''''''
+to add date time in vim use command     :put=strftime('%c')
+https://renenyffenegger.ch/notes/development/vim/script/vimscript/functions/strftime
+
+

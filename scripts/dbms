@@ -33,11 +33,15 @@ cli)    echo choice cli;
         select choice in $options exit
         do
         case $choice in
-        connect)    echo connect;;
-        create)     echo create;;
-        drop)       echo drop;;
-        list)       echo list;;
-        exit)       echo exiting...; exit;;
+        connect)    echo dbms: connect
+                    ./commands/database/db-connect ;;
+        create)     echo dbms: create
+                    ./commands/database/db-create ;;
+        drop)       echo dbms: drop
+                    ./commands/database/db-drop ;;
+        list)       echo dbms: list
+                    ./commands/database/db-list ;;
+        exit)       echo dbms: exiting...; exit;;
         esac
         done
 esac

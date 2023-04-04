@@ -45,10 +45,11 @@
 #                                                                           #
 #  >>> interfacing                                                          #
 #  """""""""""""""                                                          #
-#        $$$ [dbms] db-drop <db-name> [<path>]                              #
-#           : drop db with name <db-name> in <path> is specified and        #
+#        $$$ [dbms] db-drop [<db-name>] [<path>]                            #
+#           : drop db with name <db-name> in <path> if specified and        #
 #             in the path named (data_path) in  (config) file if not        #
 #             specified.                                                    #
+#             if no arguments specified ask for them.                       #
 #                                                                           #
 #   * any additional argument will be ignored                               #
 #############################################################################
@@ -69,16 +70,21 @@
 #############################################################################
 #### db-connect
 #############################################################################
-#                dbms                                                       #
-#  the starting file for Bash-DataBase-Simulator                            #
+#                db-connect    path: ./scripts/commands/database/db-connect #
+#  script used to start working on aspecific data base and provide access   #
+#  to its details (table level scripts) and show a menu of table manipula   #
+#  -tion options.                                                           #
+#                                                                           #
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #  >>> interfacing                                                          #
 #  """""""""""""""                                                          #
-#        $$$ dbms     : same as [dbms cli]                                  #
-#        $$$ dbms cli : start the menu app. on the command line             #
-#        $$$ dbms gui : not available yet                                   #
-#        $$$ dbms <db-option> : using db commands directly                  #
+#        $$$ [dbms] db-connect [<db-name>] [<path>]                         #
+#           : show a menu of table manipulation options for the db specif   #
+#             -ied by:                                                      #
+#               -two arg.s case: (path/db-name)                             #
+#               -one arg.  case: (defaul_path/db-name)                      #
+#               -zero arg. case: ask for db-name and db-path                #
 #                                                                           #
 #   * any additional argument will be ignored                               #
 #############################################################################

@@ -37,7 +37,6 @@ fi
 
     # use first argument as db name
     db_fname=$data_path/$db_name
-    echo $db_fname
     # check if the db exists already if so exit with code 1001
     if [ -d $db_fname  ]
     then

@@ -13,9 +13,6 @@ third stage: DataBase Level Scripts ( inprogress  )
 Next Things To Do
 '''''''''''''''''
 
-* database level scripts
-* write scripts/commands/database/db-list
-
 
 * table level scripts
     *   t-create
@@ -45,7 +42,7 @@ Finished Tasks
 2023_04_02
 Sun 02 Apr 2023 05:46:30 AM EET:  write scripts/commands/database/db-drop
 Tue 04 Apr 2023 11:19:54 AM EET:  write scripts/commands/database/db-connect
-
+Wed 05 Apr 2023 12:25:13 AM EET:  write scripts/commands/database/db-list
 
 
 

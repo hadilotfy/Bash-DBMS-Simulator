@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#############################################################################
+#                       db-list                                             #
+#  script used to list databases stored @                                   #
+#                     Bash-DataBase-Simulator-main/scripts/data             #
+#                                                                           #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#       $$$ db-create : cli menu                                            #
+#       $$$ db-create  <db-name> [<path>]                                   #
+#         : create db with name <db-name> in <path> if specified and        #
+#           in the path named (data_path) in (config) file                  #
+#       $$$ (dbms db-create) is the same as (db-create) and this is done    #
+#           in dbms script file.                                            #
+#                                                                           #
+#       any additional argument will be ignored                             #
+#############################################################################
+echo "Database List"
+read -n1 -p "check if specific database exists? [y/n]: " ans
+if [ "$ans" = "Y" ] || [ "$ans" = "y" ]
+then 
+echo ""
+read -p "enter a database name: " name
+
+if [ "$name" == "" ]
+then 
+echo "not a valid name !!!!!!!!!!!!!!!!!!!!!!"
+
+elif [ -d /home/mostafa/Downloads/Bash-DataBase-Simulator-main/scripts/data/$name ] #&& [ "$name" != "" ]
+then 
+echo "Exists"
+
+else
+echo "not exists!"
+fi
+
+else 
+echo ""
+echo "All Databases **"
+ls /home/mostafa/Downloads/Bash-DataBase-Simulator-main/scripts/data
+fi 
+
+
+
+
+
+
+
+
+

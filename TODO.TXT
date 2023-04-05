@@ -15,7 +15,6 @@ Next Things To Do
 
 
 * table level scripts
-    *   t-create
     *   t-drop
     *   t-list
 ** record level scripts
@@ -23,6 +22,15 @@ Next Things To Do
     **  r-delete
     **  r-select
     **  r-update
+
+
+144 # Problems with  t-create on  Wed 05 Apr 2023 10:34:23 PM EET
+145 ''''''''''''
+146 ***  select pk menu is not working properly when field name contain spaces.
+147 ***  select pk menu : need to check if input is a number .
+148 
+149 
+
 
 *** problem in db level scripts : not checking if the user entered an empty db name. (after command:  read -p "db-drop: Enter DB name: " db_name)
 

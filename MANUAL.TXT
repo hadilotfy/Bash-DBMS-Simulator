@@ -70,6 +70,26 @@
 #############################################################################
 #### db-connect
 #############################################################################
+#### db-connect
+#############################################################################
+#                db-connect    path: ./scripts/commands/database/db-connect #
+#  script used to start working on aspecific data base and provide access   #
+#  to its details (table level scripts) and show a menu of table manipula   #
+#  -tion options.                                                           #
+#                                                                           #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ [dbms] db-connect [<db-name>] [<path>]                         #
+#           : show a menu of table manipulation options for the db specif   #
+#             -ied by:                                                      #
+#               -two arg.s case: (path/db-name)                             #
+#               -one arg.  case: (defaul_path/db-name)                      #
+#               -zero arg. case: ask for db-name and db-path                #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
 #                db-connect    path: ./scripts/commands/database/db-connect #
 #  script used to start working on aspecific data base and provide access   #
 #  to its details (table level scripts) and show a menu of table manipula   #
@@ -107,8 +127,8 @@
 #############################################################################
 #### t-drop
 #############################################################################
-#                t-drop        ./scripts/commands/table/t-drop              #
-#  script used to  drop a table from a given data base.                     #
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #  >>> interfacing                                                          #
@@ -162,24 +182,6 @@ deleting 1.students.
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #  >>> interfacing                                                          #
-#  """""""""""""""                                                          #
-#        $$$ dbms     : same as [dbms cli]                                  #
-#        $$$ dbms cli : start the menu app. on the command line             #
-#        $$$ dbms gui : not available yet                                   #
-#        $$$ dbms <db-option> : using db commands directly                  #
-#                                                                           #
-#   * any additional argument will be ignored                               #
-#############################################################################
-#### r-delete
-#############################################################################
-#                dbms                                                       #
-#  the starting file for Bash-DataBase-Simulator                            #
-#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
-#                                                                           #
-#  >>> interfacing                                                          #
-#  """""""""""""""                                                          #
-#        $$$ dbms     : same as [dbms cli]                                  #
-#        $$$ dbms cli : start the menu app. on the command line             #
 #        $$$ dbms gui : not available yet                                   #
 #        $$$ dbms <db-option> : using db commands directly                  #
 #                                                                           #

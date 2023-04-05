@@ -61,7 +61,7 @@ else
                 case $choice in
                 'Create Table')   
                             echo DDL: t-create
-                            ./commands/table/t-create ;;
+                            ./commands/table/t-create $db_fname ;;
                 "Drop Table")     
                             echo DDL: t-drop
                             ./commands/table/t-drop ;;

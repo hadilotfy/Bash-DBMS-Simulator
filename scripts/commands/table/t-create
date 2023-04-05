@@ -1,0 +1,182 @@
+#!/bin/bash
+
+#### t-create
+#############################################################################
+#                t-create     path: ./scripts/commands/table/t-create       #
+#  script used to create a tabel in a connected database.                   #
+#  this script is meant to be used only internally by db-connect script     #
+#  and not explicitly called.                                               #
+#                                                                           #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#       ######## Postponed ## $$$ t-create <t-name> <db-fname>              #
+#        $$$ t-create <db-fname>                                            #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#                                                                           #
+#  >>> table file internal architecture (examble)                           #
+#  """"""""""""""""""""""""""""""""""""""""""""""                           #
+#       pk:3                                                                #
+#       name,address,id                                                     #
+#       string,string,integer                                               #
+#       ahmad,byroot,111                                                    #
+#       amr,riyaad,222                                                      #
+#       amr,riyaad,333          <<<<<<    only pk need to be unique         #
+#                                                                           #
+#############################################################################
+ 
+
+
+if [ $# -eq 0 ]   ; then echo "t-create: no args passed, exiting..." ; exit;
+elif [ $# -eq 1 ] ; then    
+    
+    db_fname=$1
+    db_name=$(echo $db_fname | rev |  cut -d/ -f1 | rev)
+
+    # enter table name: 
+    read -p "t-create: Enter new table name: " t_name
+   
+    # check if this table exitst already
+    if [ -f "$db_fname/$t_name" ] ; then
+   
+    #   if there is already a table $t_name then exit
+        echo "t-create: there is already a table ($t_name) in DB ($db_name)"; exit;
+    fi
+    
+    #   if ther is not, continue asking for more info.
+    read -p "t-create: Enter number of fields: " f_count
+    
+    #   check if input is an unsigned number:
+    if [[ ! $f_count =~ ^[0-9]+$ ]]; then
+        echo "t-create: number of fields must be an integer, exiting..."; exit;
+    fi
+    
+    #   check if not zero
+    if [ $f_count -eq 0 ]; then
+        echo "t-create: number of fields must be greater than 0, exiting..."; exit;
+    fi
+    
+    # loop on fields to get Name, Type
+    f_names=""
+    f_types=""
+#    for i in {1..$f_count};
+    for ((  i=1; i<=$f_count; i++  ))
+    do
+        read -p "t-create: Enter name of field #$i : "
+        f_names+="$REPLY,"
+        
+        echo "t-create: Which type?"
+        PS3="Enter a number: "
+        select opt in String Integer
+        do
+            case $opt in
+            String)
+                f_types+='string,';
+                break;;
+            Integer)
+                f_types+='integer,';
+                break;;
+            *)
+                echo "t-create: Wrong choice, Rechoose." ;;
+            esac
+        done
+    done
+    
+    # remove tailing commas
+    f_names=${f_names::-1}
+    f_types=${f_types::-1}
+
+    # ask which field is primary key
+    echo "t-create: Which field is the pk?"
+    oldIFS=$IFS
+    IFS=','
+    read -a f_name_arr <<< "$f_names"
+    IFS=$oldIFS
+
+   # echo '..............................'
+   # set | grep f_names=
+   # echo '..............................'
+   # set | grep f_name_arr=
+   # echo '..............................'
+   
+    select opt in ${f_name_arr[@]} 
+    do
+        # ????????????????????????????????????????????????????????   need to check if number 
+        if [  $REPLY -le $f_count -a $REPLY -gt 0 ]; then
+            t_pk=$REPLY
+            break
+        else
+            echo "t-create: Wrong choice, enter number between 1 and $f_count"
+        fi
+    done
+
+    # all info required is present
+    # db_fname , t_name 
+    # f_count, t_pk , f_names , f_types
+
+    t_fname=$db_fname/$t_name
+    
+    echo "t-create: Creating Table $t_name ,Working..."
+    # make empty table file
+    touch $t_fname
+    
+    # add pk line, f_names line & f_types line.
+    echo "pk:$t_pk" >> $t_fname
+    echo "$f_names" >> $t_fname
+    echo "$f_types" >> $t_fname
+
+    echo "t-create: Creating Table $t_name ,Completed."
+
+elif [ $# -eq 2 ] ; then 
+
+echo "t-create: not available yet."
+
+fi
+
+
+
+
+
+exit 
+
+# Problems:
+''''''''''''
+***  select pk menu is not working properly when field name contain spaces.
+***  select pk menu : need to check if input is a number .
+
+
+
+1; please entre table name:    students
+2;  enter number of fields:    3
+field1  enter name    :       id
+        enter type    :       int
+
+field2  enter name    :       std_Name
+        enter type    :       sting
+
+field3  enter
+
+
+
+primary key   : 1
+
+
+
+
+References:
+''''''''''''
+https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut
+https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash
+
+https://tldp.org/LDP/abs/html/string-manipulation.html
+${string:position:length}
+but if lenght is negative then it is indexing from the left
+
+
+# Bash Guide for Beginners
+https://tldp.org/LDP/Bash-Beginners-Guide/html/
+# Advanced Bash-Scripting Guide
+https://tldp.org/LDP/abs/html/
+

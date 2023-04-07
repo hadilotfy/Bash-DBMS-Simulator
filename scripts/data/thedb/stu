@@ -1,0 +1,8 @@
+pk:2
+name,id,address,phone
+string,integer,string,string
+hadi,2222,cairo,012
+mostafa,3333,obour,015
+ahmad,4444,3rdOfJan.,013
+Fathi,5555,4thOfApril,014
+ramy,6666,Alex,016

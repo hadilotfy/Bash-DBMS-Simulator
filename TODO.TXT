@@ -27,6 +27,16 @@ Next Things To Do
     **  r-select
     **  r-update
 
+
+144 # Problems with  t-create on  Wed 05 Apr 2023 10:34:23 PM EET
+145 ''''''''''''
+146 ***  select pk menu is not working properly when field name contain spaces.
+147 ***  select pk menu : need to check if input is a number .
+
+*** do not accept spaces in table names or column names
+
+*** Thu 06 Apr 2023 02:48:52 PM EET : t-create check for dublication in fields names.
+
 *** problem in db level scripts : not checking if the user entered an empty db name. (after command:  read -p "db-drop: Enter DB name: " db_name)
 
 ****  write a function get_config_info that is used by all scripts to read scripts/config file 
@@ -37,6 +47,9 @@ Next Things To Do
 **** change select menues to
     -re print the menu after every input 
     -exit with code 0 and put it last
+
+
+
 
 
 --------------------------------------------------

@@ -1,0 +1,148 @@
+#!/bin/bash
+
+#### r-insert
+#############################################################################
+#                r-insert        ./scripts/commands/record/r-insert         #
+#  script used to insert new records in a selected table of a given DB.     #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#        $$$ r-insert <db_fname>                                            #
+#                POSTPONED >>>>> [<t_name> (f1,f2,...)]                     #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#   * this script is meant to be called internally by db-connect            #
+#############################################################################
+
+db_fname=$1
+
+# Which Table to insert into.
+#''''''''''''''''''''''''''''
+echo "r-insert: Please choose a table number:"
+defIFS=$IFS; 
+#IFS='
+#';
+
+#tables=($(ls -l | cut -d" " -f10-))
+tables=($(ls $db_fname | cut -d" " -f1-))
+#IFS=$oldIFS
+n_tables=${#tables[@]}
+
+select opt in ${tables[@]}
+do
+   if [ $REPLY -gt 0 -a $REPLY -le $n_tables ]
+   then
+        t_name=$opt;
+        break;
+   else
+        echo "r-insert: Choose again."
+   fi
+done
+
+t_fname="$db_fname/$t_name"
+
+if [ ! $t_name -o ! -f $t_fname ]; then 
+    echo "r-insert: exiting...";
+    exit;
+fi
+echo "r-insert: You chose table: ${t_name}"
+
+# Read Table Data
+#"'''''''''''''''
+# this code is supposed to be translated into a function which will be
+# put into a file that will be included into more than one script.
+
+# we have  $db_fname t_name ----> t_fname
+# get pk
+typeset -i pk=$(sed -n '1p' $t_fname | cut -d: -f2 )
+# get f_names  # get f_types
+IFS='
+'
+f_names=($(sed -n '2s/,/\n/gp' $t_fname))
+f_types=($(sed -n '3s/,/\n/gp' $t_fname))
+IFS=$defIFS
+
+#echo "*${f_names[1]}*${f_names[2]}*${f_names[3]}*${f_names[4]}"
+#echo "r-insert: pk=$pk"
+#echo "r-insert: ====f_names===="
+#sed -n '2s/,/:/gp' $t_fname
+#echo "r-insert: ====f_types===="
+#sed -n '3s/,/:/gp' $t_fname
+
+
+# What to insert
+#'''''''''''''''
+r_values=""
+n_fields=${#f_names[@]}
+for (( i=0; i<$n_fields; i++ ))
+do
+    f_name=${f_names[i]}
+    f_type=${f_types[i]}
+
+    printf "r-insert: $f_type val of f.\"$f_name\": "
+    while read input
+    do
+        case $f_type in
+        string)
+                if [ $input ];then
+                f_value=$input
+                break;
+                fi;;
+        integer)
+            # check if input is a number
+            if [[ $input && ! $input =~ [^0-9]  ]]
+            then 
+                f_value=$input
+                break;
+            fi
+            ;;
+        *)
+            echo "r-insert: problem, exiting..."
+            exit;;
+        esac   
+
+        echo "r-insert: Bad input, try again."
+    done
+    r_values+="$f_value,"
+done
+r_values=${r_values::-1}
+
+echo '=========================='
+
+# Check if PK is used before
+#'''''''''''''''''''''''''''
+# pk  t_fname   r_values
+
+nr_pk=$(echo $r_values | cut -d, -f$pk)
+#echo new pk = $nr_pk
+
+# count of occurances 
+typeset -i count=$(awk -F, "{print \$$pk}" <<< $(sed '1,3d' $t_fname) | grep "^$nr_pk\$" | wc -l)
+
+#echo $count
+if [ ! $count -eq 0 ];then
+    echo "r-insert: dublicated primary key, please use another val next time."
+    echo "r-insert: exiting..."
+    exit;
+fi
+
+# Insert Into Table
+#''''''''''''''''''
+
+echo "r-insert: adding record:[$r_values]"
+echo "$r_values" >> $t_fname
+echo "r-insert: record added successfully!"
+
+
+
+
+
+
+
+
+
+exit
+
+REFERENCES
+''''''''''
+https://stackoverflow.com/questions/18709962/regex-matching-in-a-bash-if-statement

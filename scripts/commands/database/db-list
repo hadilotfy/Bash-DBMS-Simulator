@@ -18,6 +18,7 @@
 #                                                                           #
 #       any additional argument will be ignored                             #
 #############################################################################
+
 echo "Database List"
 read -n1 -p "check if specific database exists? [y/n]: " ans
 if [ "$ans" = "Y" ] || [ "$ans" = "y" ]
@@ -29,7 +30,7 @@ if [ "$name" == "" ]
 then 
 echo "not a valid name !!!!!!!!!!!!!!!!!!!!!!"
 
-elif [ -d /home/mostafa/Downloads/Bash-DataBase-Simulator-main/scripts/data/$name ] #&& [ "$name" != "" ]
+elif [ -d /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data/$name ] #&& [ "$name" != "" ]
 then 
 echo "Exists"
 
@@ -40,7 +41,7 @@ fi
 else 
 echo ""
 echo "All Databases **"
-ls /home/mostafa/Downloads/Bash-DataBase-Simulator-main/scripts/data
+ls /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data
 fi 
 
 

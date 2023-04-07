@@ -1,0 +1,3 @@
+pk:4
+name,address,grade of 100,id,phone number
+string,string,integer,integer,string

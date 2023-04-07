@@ -1,0 +1,3 @@
+pk:5
+fName,lName,address,phonenumber,id,gradeOf100
+string,string,string,string,integer,integer

@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#### t-list
+#############################################################################
+#                t-list       ./scripts/commands/table/t-list               #
+#  script used to list tables of a given database.                          #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ t-list <db-fname>                                              #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+db_fname=$1
+db_name=$(echo $db_fname | rev | cut -d/ -f1 | rev)
+
+
+
+#t-list:
+
+#listing tables of database: mostafaDB
+#1.students
+#2.teachers
+#3.courses
+#read -p "t-list: enter name of databse you want to list: " db_name
+##########ls /home/mostafa/Downloads/hady/scripts/listOfDB | grep "$db-name" -i
+
+#if [ "$db_name" == "" ]
+#then 
+#echo "t-list: please enter a name!"
+ 
+#elif [ -d /home/mostafa/Downloads/hady/scripts/listOfDB/$db_name ]
+#then 
+
+
+echo "t-list: List of tables of database($db_name): "
+
+#ls /home/mostafa/Downloads/hady/scripts/listOfDB/$db_name
+
+ls $db_fname
+
+#read -p "t-list: enter table name you want to view: " tbl_name
+#for FILE in /home/mostafa/Downloads/hady/scripts/listOfDB/$db_name/*; do cat $FILE; done; 
+#echo
+#else
+#echo "t-list: database not exits!"
+#fi

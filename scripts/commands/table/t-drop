@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#### t-drop
+#############################################################################
+#                t-drop        ./scripts/commands/table/t-drop              #
+#  script used to  drop a table from a given data base.                     #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ t-drop <db-fname>    :  ask user to input table name           #
+# postponed $$$ t-drop <t-name> from <db-fname>     : delete directly       #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+
+t_fname=$1  #path of table 
+t_name=$(echo $t_fname | rev | cut -d/ -f1 | rev) #table 
+
+ls $t_fname 
+rm $t_fname
+echo "t-drop: table ($t_name) deleted successfully!"

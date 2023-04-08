@@ -8,7 +8,10 @@
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #############################################################################
-ProjectPath='/home/hadi/iti3m/06_Shell_Scripting/Bash_Project'
+ProjectPath=".."
+
+
+ #'/home/hadi/iti3m/06_Shell_Scripting/Bash_Project'
 
 
 echo "Database List"

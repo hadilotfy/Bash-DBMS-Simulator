@@ -1,3 +1,4 @@
+#!/bin/bash
 #### r-delete
 #############################################################################
 #                dbms                                                       #
@@ -25,19 +26,19 @@ read -p "r-delete: which table you want to delete from ? " t_name
 if test -f "$db_fname/$t_name"; 
 then 
 
-cat -n $db_fname/$t_name
+    cat -n $db_fname/$t_name
 
-read -p "r-deleted: which P.K : " id
-n1=$(cat -n $db_fname/$t_name | wc -l)
-sed -i "/$id/d" $db_fname/$t_name 
-n2=$(cat -n $db_fname/$t_name | wc -l)
-if [ $n1 -ne $n2 ];
-then 
-echo "r-delete: succeded " # table after deletion "
-cat -n $db_fname/$t_name
+    read -p "r-deleted: which P.K : " id
+    n1=$(cat -n $db_fname/$t_name | wc -l)
+    sed -i "/$id/d" $db_fname/$t_name 
+    n2=$(cat -n $db_fname/$t_name | wc -l)
+    if [ $n1 -ne $n2 ];
+    then 
+        echo "r-delete: succeded " # table after deletion "
+        cat -n $db_fname/$t_name
+    else
+        echo "choose a right id"
+    fi
 else
-echo "choose a right id"
-fi
-else
-echo "r-deleted: please try again"
+    echo "r-deleted: please try again"
 fi

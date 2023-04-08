@@ -36,8 +36,9 @@ elif [ $# -eq 1 ] ; then
     db_name=$(echo $db_fname | rev |  cut -d/ -f1 | rev)
 
     # enter table name: 
-    read -p "t-create: Enter new table name: " t_name
-   
+    read -p "t-create: Enter new table name: " -a t_name
+    
+
     # check if this table exitst already
     if [ -f "$db_fname/$t_name" ] ; then
    

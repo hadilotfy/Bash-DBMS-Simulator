@@ -15,7 +15,23 @@
 #############################################################################
 
 
-t_fname=$1  #path of table 
+db_fname=$1
+
+echo "t-drop: Table list:"
+ls $db_fname
+printf "t-drop: Which table to drop: "
+read t_name
+
+t_fname="$db_fname/$t_name"
+if [ -f $t_fname ] ;then
+    rm $t_fname
+else
+    echo "t-drop: Table $t_name does not exist!"
+fi
+
+
+exit
+
 t_name=$(echo $t_fname | rev | cut -d/ -f1 | rev) #table 
 
 ls $t_fname 

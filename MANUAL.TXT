@@ -157,16 +157,13 @@ deleting 1.students.
 ### Record Level Scripts
 #### r-insert
 #############################################################################
-#                dbms                                                       #
-#  the starting file for Bash-DataBase-Simulator                            #
+#                r-insert        ./scripts/commands/record/r-insert         #
+#  script used to insert new records in a selected table of a given DB.     #
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #  >>> interfacing                                                          #
 #  """""""""""""""                                                          #
-#        $$$ dbms     : same as [dbms cli]                                  #
-#        $$$ dbms cli : start the menu app. on the command line             #
-#        $$$ dbms gui : not available yet                                   #
-#        $$$ dbms <db-option> : using db commands directly                  #
+#        $$$ r-insert <db_fname> [<t_name> (f1,f2,...)]                     #
 #                                                                           #
 #   * any additional argument will be ignored                               #
 #############################################################################

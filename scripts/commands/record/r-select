@@ -1,0 +1,165 @@
+#!/bin/bash
+
+#### r-insert
+#############################################################################
+#                r-insert        ./scripts/commands/record/r-insert         #
+#  script used to insert new records in a selected table of a given DB.     #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#        $$$ r-insert <db_fname>                                            #
+#                POSTPONED >>>>> [<t_name> (f1,f2,...)]                     #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#   * this script is meant to be called internally by db-connect            #
+#############################################################################
+
+db_fname=$1
+
+# which table
+# Which Table to insert into.
+#''''''''''''''''''''''''''''
+echo "r-select: Please choose a table number:"
+defIFS=$IFS; 
+#IFS='
+#';
+
+#tables=($(ls -l | cut -d" " -f10-))
+tables=($(ls $db_fname | cut -d" " -f1-))
+#IFS=$oldIFS
+n_tables=${#tables[@]}
+
+select opt in ${tables[@]}
+do
+   if [ $REPLY -gt 0 -a $REPLY -le $n_tables ]
+   then
+        t_name=$opt;
+        break;
+   else
+        echo "r-select: Choose again."
+   fi  
+done
+if [ ! $REPLY ] ;then
+    echo "r-select: bad input, do not do this again! exiting...";
+    exit;
+fi
+t_fname="$db_fname/$t_name"
+
+if [ ! $t_name -o ! -f $t_fname ]; then 
+    echo "r-select: exiting...";
+    exit;
+fi
+echo "r-select: You chose table: ${t_name}"
+
+# Read Table MetaData
+#''''''''''''''''''''
+# this code is supposed to be translated into a function which will be
+# put into a file that will be included into more than one script.
+
+# we have  $db_fname t_name ----> t_fname
+# get pk
+typeset -i pk=$(sed -n '1p' $t_fname | cut -d: -f2 )
+# get f_names  # get f_types
+IFS='
+'
+f_names=($(sed -n '2s/,/\n/gp' $t_fname))
+f_types=($(sed -n '3s/,/\n/gp' $t_fname))
+IFS=$defIFS
+
+options=("All" "Field"  "Records based on a field" "Exit") # "Record"
+IFS=
+select opt in ${options[@]}
+do
+    case $opt in
+    All)
+        echo  ============= All Records Of: $t_name ===============
+        sed '1,3d' $t_fname
+        echo  =====================================================
+
+    ;;
+    Field)
+#        echo Field
+		# select based on which field
+		#''''''''''''''''''''''''''''
+		n_fields=${#f_names[@]}
+		echo "r-select: Select which field?"
+		select opt in ${f_names[@]}
+		do
+		    if [ $REPLY -gt 0 -a $REPLY -le $n_fields ]
+		    then
+		        break;
+		    fi
+		done
+		if [ ! $REPLY ] ;then
+		    echo "r-select: bad input, do not do this again! exiting...";
+		    exit;
+		fi
+		#echo $opt $REPLY
+		f_number=$REPLY
+		f_name=$opt
+        
+        echo  ============= Field $f_name of $t_name ==============
+        sed '1,3d' $t_fname | awk -F, "{ print \$$f_number  }"
+        echo  =====================================================
+    ;;
+    ${options[2]})
+		# select based on which field
+		#''''''''''''''''''''''''''''
+		n_fields=${#f_names[@]}
+		echo "r-select: Select based on which field?"
+		select opt in ${f_names[@]}
+		do
+		    if [ $REPLY -gt 0 -a $REPLY -le $n_fields ]
+		    then
+		        break;
+		    fi
+		done
+		if [ ! $REPLY ] ;then
+		    echo "r-select: bad input, do not do this again! exiting...";
+		    exit;
+		fi
+		#echo $opt $REPLY
+		f_number=$REPLY
+		f_name=$opt
+		
+		# regex to search for
+		#''''''''''''''''''''
+		printf "r-select: Enter Regex: "
+        read input
+        
+        awk -F, "
+        BEGIN {
+            format=\"  %-10.10s  \"
+        } 
+        
+        {
+            if ( NR == 1 || NR == 3 )
+                next
+            
+            if (\$$f_number ~ \"$input\" || NR == 2){
+                for (i=1;i<=NF;i++){
+                    printf format , \$i
+                }
+                printf \"\\n\"        
+            }
+            if ( NR ==2 ){
+                for (i=1;i<=NF;i++){
+                    printf format , \"------------------\"
+                }
+                printf \"\\n\"
+            }
+        }" $t_fname
+    ;;
+    Record)
+        echo Record;;
+    Exit) echo "r-select: Exiting..." ; exit
+    ;;
+    *) echo "r-select: Bad Input, go to hell."
+    ;;
+    esac
+done
+
+
+
+# get values
+# print it in acceptable way

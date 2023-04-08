@@ -1,0 +1,43 @@
+#### r-delete
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+db_fname=$1
+ls $db_fname
+
+read -p "r-delete: which table you want to delete from ? " t_name
+
+#for validation : lower_case_tname=$(echo "$t_name" | tr '[:upper:]' '[:lower:]')
+
+
+if test -f "$db_fname/$t_name"; 
+then 
+
+cat -n $db_fname/$t_name
+
+read -p "r-deleted: which P.K : " id
+n1=$(cat -n $db_fname/$t_name | wc -l)
+sed -i "/$id/d" $db_fname/$t_name 
+n2=$(cat -n $db_fname/$t_name | wc -l)
+if [ $n1 -ne $n2 ];
+then 
+echo "r-delete: succeded " # table after deletion "
+cat -n $db_fname/$t_name
+else
+echo "choose a right id"
+fi
+else
+echo "r-deleted: please try again"
+fi

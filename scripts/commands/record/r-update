@@ -1,0 +1,73 @@
+#!/bin/bash
+
+
+
+#### r-update
+#############################################################################
+#                dbms                                                       #
+#  the starting file for Bash-DataBase-Simulator                            #
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#  """""""""""""""                                                          #
+#        $$$ dbms     : same as [dbms cli]                                  #
+#        $$$ dbms cli : start the menu app. on the command line             #
+#        $$$ dbms gui : not available yet                                   #
+#        $$$ dbms <db-option> : using db commands directly                  #
+#                                                                           #
+#   * any additional argument will be ignored                               #
+#############################################################################
+
+db_fname=$1
+ls $db_fname
+
+read -p "r-update: which table you want to delete from ? " t_name
+
+if test -f "$db_fname/$t_name";
+
+then
+
+cat $db_fname/$t_name
+
+echo "UPDATE $t_name"
+
+read -p  "Which row to update (choose a P.K)" pk
+
+readarray -d , -t fields <<< $(cat $db_fname/$t_name | grep $pk)
+
+
+
+IFS='
+'
+
+f_names=($(sed -n '2s/,/\n/gp' $db_fname/$t_name))
+
+IFS=$defIFS
+
+n_fields=${#f_names[@]}
+
+for (( i=0; i<$n_fields; i++ ))
+do
+field_name=${f_names[i]}
+
+read -p "set value of $field_name to (enter for default): " new_value 
+
+
+if [ "$new_value"=="" ] ;
+then 
+fields[i]=$new_value
+echo "++" ${fields[i]}
+fi
+done
+
+sed -i "/$pk/d" $db_fname/$t_name
+for (( j=0; j+1<$n_fields; j++ ))
+do
+echo -n ${fields[j]}",">> $db_fname/$t_name 
+done
+m=$((n_fields-1))
+echo ${fields[m]} >> $db_fname/$t_name
+else 
+echo "table not found!"
+fi
+

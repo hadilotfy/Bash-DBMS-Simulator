@@ -61,13 +61,13 @@ else
                 case $choice in
                 'Create Table')   
                             echo DDL: t-create
-                            ./commands/table/t-create ;;
+                            ./commands/table/t-create $db_fname ;;
                 "Drop Table")     
                             echo DDL: t-drop
-                            ./commands/table/t-drop ;;
+                            ./commands/table/t-drop  $db_fname;;
                 "List Tables")       
                             echo DDL: t-list
-                            ./commands/table/t-list ;;
+                            ./commands/table/t-list $db_fname;;
                 "Exit DDL")       
                             echo DDL: exiting.. ; break ;;
                 esac
@@ -84,16 +84,16 @@ else
                 case $choice in
                 "Insert Record(s)")   
                             echo DML: r-insert
-                            ./commands/record/r-insert ;;
+                            ./commands/record/r-insert  $db_fname;;
                 "Delete Record(s)")     
                             echo DML: r-delete
-                            ./commands/record/r-delete ;;
+                            ./commands/record/r-delete  $db_fname;;
                 "Select Record(s)")       
                             echo DML: r-select
-                            ./commands/record/r-select ;;
+                            ./commands/record/r-select $db_fname;;
                 "Update Record(s)")       
                             echo DML: r-update
-                            ./commands/record/r-update;;
+                            ./commands/record/r-update $db_fname ;;
                 "Exit DML")
                             echo DML: exiting.. ; break ;;
                 esac

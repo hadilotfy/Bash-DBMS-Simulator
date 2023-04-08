@@ -47,8 +47,8 @@ if [ ! $t_name -o ! -f $t_fname ]; then
 fi
 echo "r-insert: You chose table: ${t_name}"
 
-# Read Table Data
-#"'''''''''''''''
+# Read Table MetaData
+#"'''''''''''''''''''
 # this code is supposed to be translated into a function which will be
 # put into a file that will be included into more than one script.
 

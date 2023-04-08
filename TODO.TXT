@@ -13,18 +13,11 @@ third stage: DataBase Level Scripts ( inprogress  )
 Next Things To Do
 '''''''''''''''''
 
-* database level scripts
-* write scripts/commands/database/db-list
-
-
 * table level scripts
-    *   t-create
     *   t-drop
     *   t-list
 ** record level scripts
-    **  r-insert
     **  r-delete
-    **  r-select
     **  r-update
 
 

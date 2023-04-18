@@ -8,10 +8,26 @@
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #############################################################################
+<<<<<<< Updated upstream
 ProjectPath=".."
+=======
+
+echo "Database List"
+read -n1 -p "check if specific database exists? [y/n]: " ans
+if [ "$ans" = "Y" ] || [ "$ans" = "y" ]
+then 
+echo ""
+read -p "enter a database name: " name
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
  #'/home/hadi/iti3m/06_Shell_Scripting/Bash_Project'
+=======
+elif [ -d /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data/$name ] #&& [ "$name" != "" ]
+then 
+echo "Exists"
+>>>>>>> Stashed changes
 
 
 echo "Database List"
@@ -34,9 +50,15 @@ then
 	fi
 		
 else 
+<<<<<<< Updated upstream
 	echo ""
 	echo "All Databases **"
 	ls "$ProjectPath/scripts/data"
+=======
+echo ""
+echo "All Databases **"
+ls /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data
+>>>>>>> Stashed changes
 fi 
 
 

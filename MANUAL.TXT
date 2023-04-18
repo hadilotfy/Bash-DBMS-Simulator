@@ -179,6 +179,7 @@ deleting 1.students.
 #############################################################################
 #                r-insert        ./scripts/commands/record/r-insert         #
 #  script used to insert new records in a selected table of a given DB.     #
+<<<<<<< Updated upstream
 #  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
 #                                                                           #
 #  >>> interfacing                                                          #
@@ -199,6 +200,12 @@ deleting 1.students.
 #        $$$ dbms cli : start the menu app. on the command line             #
 #        $$$ dbms gui : not available yet                                   #
 #        $$$ dbms <db-option> : using db commands directly                  #
+=======
+#  authors: github.com/hadilotfy , github.com/Mustafa-Essam223              #
+#                                                                           #
+#  >>> interfacing                                                          #
+#        $$$ r-insert <db_fname> [<t_name> (f1,f2,...)]                     #
+>>>>>>> Stashed changes
 #                                                                           #
 #   * any additional argument will be ignored                               #
 #############################################################################

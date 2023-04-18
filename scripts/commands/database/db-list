@@ -9,8 +9,11 @@
 #                                                                           #
 #############################################################################
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ProjectPath=".."
 =======
+=======
+>>>>>>> Stashed changes
 
 echo "Database List"
 read -n1 -p "check if specific database exists? [y/n]: " ans
@@ -22,8 +25,11 @@ read -p "enter a database name: " name
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  #'/home/hadi/iti3m/06_Shell_Scripting/Bash_Project'
 =======
+=======
+>>>>>>> Stashed changes
 elif [ -d /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data/$name ] #&& [ "$name" != "" ]
 then 
 echo "Exists"
@@ -58,6 +64,9 @@ else
 echo ""
 echo "All Databases **"
 ls /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 fi 
 

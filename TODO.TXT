@@ -36,6 +36,9 @@ Next Things To Do
 
 *** do not accept spaces in table names or column names
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 *** Thu 06 Apr 2023 02:48:52 PM EET : t-create check for dublication in fields names.
 

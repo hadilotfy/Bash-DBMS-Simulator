@@ -37,6 +37,9 @@ Next Things To Do
 *** do not accept spaces in table names or column names
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

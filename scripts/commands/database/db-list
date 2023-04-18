@@ -10,8 +10,11 @@
 #############################################################################
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ProjectPath=".."
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -26,8 +29,11 @@ read -p "enter a database name: " name
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  #'/home/hadi/iti3m/06_Shell_Scripting/Bash_Project'
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 elif [ -d /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data/$name ] #&& [ "$name" != "" ]
@@ -65,6 +71,9 @@ echo ""
 echo "All Databases **"
 ls /home/hadi/iti3m/06_Shell_Scripting/Bash Project/scripts/data
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

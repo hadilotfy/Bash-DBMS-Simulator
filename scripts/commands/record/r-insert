@@ -49,8 +49,13 @@ echo "r-insert: You chose table: ${t_name}"
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Read Table MetaData
 #"'''''''''''''''''''
+=======
+# Read Table Data
+#"'''''''''''''''
+>>>>>>> Stashed changes
 =======
 # Read Table Data
 #"'''''''''''''''
